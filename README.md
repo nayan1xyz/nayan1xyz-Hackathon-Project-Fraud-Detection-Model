@@ -108,25 +108,68 @@ The API will be accessible at `http://127.0.0.1:5000/`.
 **Endpoint:** `POST /predict`
 - **Input:** JSON object with transaction details
 - **Output:** Fraud prediction and risk score
-
+- **Content-Type:** application/json
 Example request:
 ```json
 {
-  "transaction_amount": 5000,
-  "sender_country": "US",
-  "receiver_country": "IN",
-  "transaction_type": "wire_transfer"
+  "GrpHdr": {
+    "MsgId": "TEST123",
+    "CreDtTm": "2025-03-10T10:00:00Z",
+    "NbOfTxs": "1"
+  },
+  "PmtInf": {
+    "PmtMtd": "TRF",
+    "Dbtr": {
+      "Nm": "Fraudster Inc",
+      "Id": "BlacklistedID1"
+    },
+    "DbtrAcct": {
+      "Id": {
+        "IBAN": "IR123456789012345678"
+      }
+    },
+    "CdtTrfTxInf": {
+      "Amt": {
+        "InstdAmt": "10000.00",
+        "Ccy": "USD"
+      },
+      "Cdtr": {
+        "Nm": "Alice Smith",
+        "Id": "654321987"
+      },
+      "CdtrAcct": {
+        "Id": {
+          "IBAN": "US987654321098765432"
+        }
+      },
+      "RgltryRptg": {
+        "Cd": "AML"
+      }
+    }
+  },
+  "fraud": 1
 }
+
 ```
 
 Example response:
+If the transaction is predicted to be suspicious:
 ```json
 {
-  "is_fraud": true,
-  "risk_score": 0.85
+  "fraud_detected": true,
+  "risk_score": "85.0%",
+  "message": "⚠️ Suspicious transaction detected!"
 }
 ```
+If the transaction is safe:
+```json
+{
+  "fraud_detected": false,
+  "risk_score": "12.3%",
+  "message": "✅ Transaction is safe"
+}
 
+```
 ## Acknowledgments
 - This project uses the Random Forest algorithm for fraud detection.
 - Flask is used to deploy the fraud detection model as an API.
