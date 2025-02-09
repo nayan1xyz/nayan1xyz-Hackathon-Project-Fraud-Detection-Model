@@ -131,6 +131,6 @@ Example response:
 - This project uses the Random Forest algorithm for fraud detection.
 - Flask is used to deploy the fraud detection model as an API.
 
-## Thankyou
+## Thank you
 Made with ❤
 
