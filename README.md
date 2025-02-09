@@ -4,27 +4,6 @@ A prototype fraud detection system built to identify suspicious financial transa
 
 ---
 
-## Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Usage](#usage)
-  - [1. Generate Synthetic Data](#1-generate-synthetic-data)
-  - [2. Data Preprocessing](#2-data-preprocessing)
-  - [3. Model Training](#3-model-training)
-  - [4. Running the API](#4-running-the-api)
-- [API Documentation](#api-documentation)
-  - [Endpoint: /predict](#endpoint-predict)
-  - [Sample Request](#sample-request)
-  - [Sample Response](#sample-response)
-- [Project Flow](#project-flow)
-- [Future Enhancements](#future-enhancements)
-- [License](#license)
-
----
-
 ## Overview
 
 This project is a multi-step approach to detect fraudulent transactions that may indicate money laundering. The key components are:
