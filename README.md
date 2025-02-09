@@ -44,6 +44,7 @@ This project is a multi-step approach to detect fraudulent transactions that may
 ---
 
 ## Project Structure
+- While running the model few file will be auto-generated
 ```
 .
 ├── generate_synthetic_data.py      # Script to generate synthetic ISO 20022 transaction data
